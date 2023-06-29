@@ -6,6 +6,9 @@ import { InputComponent } from 'src/app/input/input.component';
 export default {
   title: 'Components/CreateAccount',
   component: CreateAccountComponent,
+  argTypes: {
+    showNationalityInput: { control: 'boolean' },
+  },
   decorators: [
     moduleMetadata({
       declarations: [CreateAccountComponent, ButtonComponent, InputComponent],

@@ -14,5 +14,11 @@
     placeholder="Email"
     label="Please enter your email adress"
   ></app-input>
+  <app-input
+    *ngIf="showNationalityInput"
+    type="text"
+    placeholder="Nationality"
+    label="Please enter your nationality"
+  ></app-input>
   <app-button content="submit"></app-button>
 </form>

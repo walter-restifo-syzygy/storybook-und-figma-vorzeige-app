@@ -76,7 +76,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-bc6c0c901930fd26afb956b0636a556ac1682346f7da36834a5cab3c093037d505b7f19e6026e946832c80d778c8f905642f061cdcf53344d7c5cca41da87355",
+            "id": "component-ButtonComponent-7c08df8691c460ab2d810b0cbb2649637e31bbf068243bbadcfb0849f07c98b002865c3a542967ce5a9469c801cee62eff1f180f051913b0ba52ed91781a0280",
             "file": "src/app/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -93,7 +93,17 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "content",
+                    "defaultValue": "'click me'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
@@ -106,20 +116,20 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent {\n\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class ButtonComponent {\n  @Input() content: string = 'click me';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".condor-styled-button {\n  background-color: yellow;\n  color: white;\n  border: none;\n  font-size: clamp(1rem, 10vw, 2rem);\n  width: clamp(50px, 70vw, 350px);\n  cursor: pointer;\n}\n",
                     "styleUrl": "./button.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<button>submit</button>\n"
+            "templateData": "<button class=\"condor-styled-button\">{{ content }}</button>\n"
         },
         {
             "name": "CreateAccountComponent",
-            "id": "component-CreateAccountComponent-1332e667ecf057cf5150a2a2010ab1f034b863e0e1d86f1202f44d1a3fcd85696331135b81d43c4dec3708ea7c8e16f5e27ad7f593eb2eda0d8fe06bc5949d2c",
+            "id": "component-CreateAccountComponent-de9e8d16c592c2114aba33131d0647a2c926ee90ffb6ccdb6c930e40e3bd3a08a1208369463b62eae390f347119e6d0f9ad2e88b41f442b7634d8c83b7d708af",
             "file": "src/app/create-account/create-account.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -138,7 +148,18 @@
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "showNationalityInput",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -149,16 +170,16 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { ButtonComponent } from '../button/button.component';\n\n@Component({\n  selector: 'app-create-account',\n  templateUrl: './create-account.component.html',\n  styleUrls: ['./create-account.component.scss'],\n})\nexport class CreateAccountComponent {}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-create-account',\n  templateUrl: './create-account.component.html',\n  styleUrls: ['./create-account.component.scss'],\n})\nexport class CreateAccountComponent {\n  showNationalityInput: boolean = false;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".form {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-around;\n  align-items: center;\n  border: 1px solid black;\n  height: clamp(500px, 80vh, 700px);\n  width: clamp(250px, 80vw, 400px);\n  border-radius: 25px;\n  margin: auto;\n}\n",
                     "styleUrl": "./create-account.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<form>\n  <input type=\"text\" placeholder=\"Name\" />\n  <input type=\"text\" placeholder=\"Surname\" />\n  <input type=\"email\" placeholder=\"Email\" />\n  <app-button></app-button>\n</form>\n"
+            "templateData": "<form class=\"form\">\n  <app-input\n    type=\"text\"\n    placeholder=\"Name\"\n    label=\"Please enter your name\"\n  ></app-input>\n  <app-input\n    type=\"text\"\n    placeholder=\"Surname\"\n    label=\"Please enter your suname\"\n  ></app-input>\n  <app-input\n    type=\"email\"\n    placeholder=\"Email\"\n    label=\"Please enter your email adress\"\n  ></app-input>\n  <app-input\n    *ngIf=\"showNationalityInput\"\n    type=\"text\"\n    placeholder=\"Nationality\"\n    label=\"Please enter your nationality\"\n  ></app-input>\n  <app-button content=\"submit\"></app-button>\n</form>\n"
         },
         {
             "name": "FooterComponent",
@@ -248,7 +269,7 @@
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-0bf2d4eb231bc24a61619596f995b8834023fec4845c29ac3ae38e88aa81053ee21d71ddd51dd617a123c08f174b50f76f7ded7e488d9040f8acb1fc9a3365f5",
+            "id": "component-InputComponent-250135e90cd59def5523a493f582e589e7ae474aee40a9368a54329af38e069a4596522512620dd93ba41f370dfd4edb4d6ed5b7fb9c82a512c534b53767a2aa",
             "file": "src/app/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -265,7 +286,44 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "label",
+                    "defaultValue": "'example label'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "defaultValue": "'placeholder'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'text'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
@@ -278,16 +336,16 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-input',\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss']\n})\nexport class InputComponent {\n\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-input',\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss'],\n})\nexport class InputComponent {\n  @Input() type: string = 'text';\n  @Input() placeholder: string = 'placeholder';\n  @Input() value: string = '';\n  @Input() label: string = 'example label';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "input {\n  display: block;\n  &:focus {\n    background-color: ivory;\n    outline-color: yellow;\n  }\n}\n\n.input-wrapper {\n  display: flex;\n  flex-direction: column;\n  height: 10vh;\n  width: clamp(100px, 100%, 200px);\n  justify-content: space-around;\n}\n",
                     "styleUrl": "./input.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<p>input works!</p>\n"
+            "templateData": "<div class=\"input-wrapper\">\n  <label [for]=\"placeholder\">{{ label }}</label>\n  <input [name]=\"placeholder\" [type]=\"type\" [placeholder]=\"placeholder\" />\n</div>\n"
         }
     ],
     "modules": [
@@ -414,6 +472,36 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -440,8 +528,38 @@
                 "file": "src/stories/createAccount.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
+                "type": "StoryFn<CreateAccountComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <app-create-account></app-create-account>\n  `,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
                 "type": "any",
-                "defaultValue": "(args: any) => ({\n  component: CreateAccountComponent,\n  props: args,\n})"
+                "defaultValue": "(args: any) => ({\n  component: FooterComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "any",
+                "defaultValue": "(args: any) => ({\n  component: HeaderComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "any",
+                "defaultValue": "(args: any) => ({\n  component: InputComponent,\n  props: args,\n})"
             }
         ],
         "functions": [],
@@ -488,8 +606,74 @@
                     "file": "src/stories/createAccount.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
+                    "type": "StoryFn<CreateAccountComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <app-create-account></app-create-account>\n  `,\n})"
+                }
+            ],
+            "src/stories/footer.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "type": "any",
-                    "defaultValue": "(args: any) => ({\n  component: CreateAccountComponent,\n  props: args,\n})"
+                    "defaultValue": "(args: any) => ({\n  component: FooterComponent,\n  props: args,\n})"
+                }
+            ],
+            "src/stories/header.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "defaultValue": "(args: any) => ({\n  component: HeaderComponent,\n  props: args,\n})"
+                }
+            ],
+            "src/stories/input.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "defaultValue": "(args: any) => ({\n  component: InputComponent,\n  props: args,\n})"
                 }
             ],
             ".storybook/preview.ts": [
@@ -552,7 +736,7 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -561,7 +745,7 @@
                 "linktype": "component",
                 "name": "CreateAccountComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -588,7 +772,7 @@
                 "linktype": "component",
                 "name": "InputComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -632,6 +816,66 @@
             },
             {
                 "filePath": "src/stories/createAccount.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/footer.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/footer.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

@@ -1,0 +1,15 @@
+input {
+  display: block;
+  &:focus {
+    background-color: ivory;
+    outline-color: yellow;
+  }
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 10vh;
+  width: clamp(100px, 100%, 200px);
+  justify-content: space-around;
+}

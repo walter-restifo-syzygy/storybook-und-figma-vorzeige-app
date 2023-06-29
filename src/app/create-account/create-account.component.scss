@@ -1,0 +1,11 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  height: clamp(500px, 80vh, 700px);
+  width: clamp(250px, 80vw, 400px);
+  border-radius: 25px;
+  margin: auto;
+}
